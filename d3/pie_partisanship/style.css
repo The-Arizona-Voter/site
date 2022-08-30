@@ -1,0 +1,14 @@
+.d3-tip {
+    background: lightgrey;
+    font-size: 12px;
+    font-weight: 10;
+    font-family: didot; 
+    background-color: white;
+    padding: 5px 5px 8px 8px;
+    width: 220px;
+    margin-left:30px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+  }
