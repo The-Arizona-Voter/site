@@ -43,7 +43,7 @@ var svg = d3.select("#stacked_bar")
           "translate(" + margin.left + "," + margin.top + ")");
    
 
-d3.csv("feelings.csv", stackedBar);
+d3.csv("feelings_10.csv", stackedBar);
       
 function stackedBar(data) {
   
@@ -83,7 +83,9 @@ function stackedBar(data) {
         .style("opacity", 0.88)
     }
   
+  console.log(data)
   var subgroups = data.columns.slice(1)
+console.log(subgroups)
 
   // List of groups = species here = value of the first column called group -> I show them on the X axis
   var groups = d3.map(data, function(d){return(d.pid_7)}).keys()
@@ -108,8 +110,11 @@ function stackedBar(data) {
   // color palette = one color per subgroup
   var color = d3.scaleOrdinal()
     .domain(groups)
-    .range(["red", "darkblue", "blue", "lightblue", "crimson", "darkred"]);
+    .range(["crimson", "blue", "red", "darkblue", "darkred", "lightblue"]);
+  
+  console.log(subgroups)
   //stack the data? --> stack per subgroup
+  
   var stackedData = d3.stack()
     .keys(subgroups)
     (data)
@@ -131,12 +136,14 @@ function stackedBar(data) {
         .on("mouseleave", mouseleave)
         .attr("height", function(d) { return y(d[0]) - y(d[1]); })
         .attr("width",x.bandwidth())
+        .attr("fill", function(d, i, j) {
+            return color[(j*6)+i];
+ });
         
-  
-    var feelings = ["Feeling_Democrat","Feeiling_Republican","Feeling_Biden","Feeling_Trump","Feeling_Ordinary_Democrats","Feeling_Ordinary_Republicans"];
+
   var fillScale = d3.scaleOrdinal()
-    .domain(["Republicans", "Biden", "Democrats", "Ordinary Democrats", "Ordinary Republicans", "Trump"])
-    .range(["red", "darkblue", "blue", "lightblue", "crimson", "darkred"]);
+    .domain(["Democrats", "Republicans", "Biden", "Trump", "Ordinary Democrat", "Ordinary Republicans"])
+    .range(["blue", "red", "darkblue", "darkred", "lightblue", "crimson"]);
 
   var legendA = d3.legendColor().scale(fillScale).labelFormat(d3.format(".0f")).title("Relative Orientation Towards:");
   d3.select("svg")
