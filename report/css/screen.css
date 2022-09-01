@@ -677,19 +677,19 @@ code {
 
 /* line 205, scss/_3_base.scss */
 table {
-  border: 1px solid #ffe21e;
+  border: 1px solid black;
   font-size: 92%;
   margin-bottom: 2rem;
 }
 /* line 211, scss/_3_base.scss */
 table th {
-  background-color: #d;
-  border: 1px solid #ffe21e;
+  background-color: lightgrey;
+  border: 1px solid black;
   padding: .25em .5em;
 }
 /* line 217, scss/_3_base.scss */
 table td {
-  border: 1px solid #ffe21e;
+  border: 1px solid black;
   padding: .25em .5em;
 }
 /* line 222, scss/_3_base.scss */
