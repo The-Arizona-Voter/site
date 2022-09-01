@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+<!-- *** INSTRUCTIONS: Go through this HTML file and insert your content as needed.
+         You can search within the text for "_Add" to make sure you don't miss anything. *** -->
+
+
+<!-- *** UPDATE: Update the head metadata [title] and [name="description"] below. *** -->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>The Arizona Voter</title>
+        <meta name="description"                  content="_Add the report description here.">
+        <meta name="viewport"                     content="width=device-width, initial-scale=1">
+
+<!-- *** UPDATE: The properties below support Open Graph Protocol (http://ogp.me/). Customize them to describe the report. This information allows the report to become a rich object in a social graph. For instance, this is used on Facebook to allow any web page to have the same functionality as any other object on Facebook. You can use Facebook debugger (https://developers.facebook.com/tools/debug/) to check your work. *** -->
+        <meta property="og:title"                 content="Public Opinion, Partisanship, and the Arizona Primaries" />
+        <meta property="og:description"           content="..." />
+        <meta property="og:type"                  content="article" /><!-- Don't change. -->
+        <meta property="article:published_time"   content="YYYY-MM-DD" /><!-- _Add publication date. -->
+        <meta property="article:modified_time"    content="YYYY-MM-DD" /><!-- _Add modification date if different than publication date. Delete this line if unnecessary. -->
+        <meta property="article:publisher"        content="http://www.facebook.com/example/" /><!-- _Add URL to publisher/author's Facebook page -->
+        <meta property="og:url"                   content="http://www.example.com/" /><!-- _Add Report's URL -->
+        <meta property="og:image"                 content="http://www.example.com/img/pic.jpg" /><!-- _Add URL to medium-sized horizontal cover image -->
+
+
+        <!-- The HTML5 Shiv enables use of HTML5 sectioning elements in legacy Internet Explorer and provides basic HTML5 styling for Internet Explorer 6-9, Safari 4.x (and iPhone 3.x), and Firefox 3.x. - https://github.com/aFarkas/html5shiv -->
+        <script src="js/vendor/html5shiv-printshiv.min.js"></script>
+          
+  
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+<!-- Load jQuery and PapaParse to read data from a CSV file -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
+<link rel="stylesheet" href="style.css"> 
+
+        <!-- Screen styles -->
+        <link rel="stylesheet" href="css/screen.css">
+
+        <!-- Print styles -->
+        <link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+
+        <!-- Font Awesome is used for icons - http://fortawesome.github.io/Font-Awesome/ -->
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+        <!-- Typekit is used for fonts - https://typekit.com/fonts - If you are using a different font service, add it here. -->
+        <script type="text/javascript" src="//use.typekit.net/ptd6qqr.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- I did this -->
+
+
+    </head>
+
+
+
+    <body><div id="content" class="wrapper">
+    <!--[if lt IE 7]><p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p><![endif]-->
+
+        <header class="global-header group">
+            <span class="header-page-logo">The Arizona Voter Report</span>
+            <span class="header-page-sections"><a href="#" class="my_popup_open"><i class="fa fa-bars"></i><span class="label"> Sections</span></a></span>
+            <span class="header-page-download"><a href="#" class="my_popup_open"><i class="fa fa-download"></i><span class="label"> Download</span></a></span>
+<!-- *** NOTE: These share icons in the Global Header utilize the ShareThis service. In order to work, you'll need to sign up for the free service and update the script down in the footer. *** -->
+            <span class="header-page-social-media">
+                <a href="#" class="social-network"><span class="st_twitter_custom"><i class="fa fa-twitter"></i></span></a>
+                <a href="#" class="social-network"><span class="st_facebook_custom"><i class="fa fa-facebook-square"></i></span></a>
+                <a href="#" class="social-network"><span class="st_googleplus_custom"><i class="fa fa-google-plus"></i></span></a>
+                <a href="#" class="social-network"><span class="st_linkedin_custom"><i class="fa fa-linkedin-square"></i></span></a>
+                <a href="#" class="social-network"><span class="st_email_custom"><i class="fa fa-envelope"></i></span></a>
+            </span>
+        </header>
+
+<!-- REPORT COVER -->
+<!-- The report cover simply provides a visual introduction to the text. -->
+
+<!-- *** UPDATE: Update these cover elements. The background image is controlled in the "COVER" section of the file "_4_template.scss". *** -->
+        <div class="report-cover group">
+            <div class="cover-text">
+                <h1 class="cover-text-title">Public Opinion, Partisanship, and the Arizona Primaries</h1>
+                <p class="cover-text-subtitle">The Arizona Voter Report</p>
+                <p class="cover-text-subtitle">Report Prepared by Chris Weber</p>
+            </div>
+        </div>
+
+<!-- ARTICLE Begins -->
+
+        <div class="article-container">
+
+            <div class="main group">
+
+<!-- FRONT-MATTER -->
+<!-- This section contains information about what the report contains. It is intended as an introduction or quick summary of the report as a whole. -->
+
+                <section id="front-matter" class="section group anchor">
+
+                    <div class="report-overview group">
+                        <h1>Front Matter</h1>
+                        <div id="abstract" class="group">
+                           
+                        </div>
+
+                        <nav id="table-of-contents" >
+                            <h2>Table of Contents</h2>
+                            <ol class="nested-numbers">
+                                <li><a href="#introduction">The Survey</a>
+                                     <ol class="nested-numbers">
+                                        <li><a href="#thesample">The Sample and Design</a></li>
+                                        <li><a href="#results">Results</a></li>
+                                    </ol>
+                                </li>
+                                <li><a href="#registration1"> Redistricting and the Voter File </a>
+                                    <ol class="nested-numbers">
+                                        <li><a href="#registration2">Registration and Redistricting</a></li>
+                                        <li><a href="#lds">Legislative District Dashboard</a></li>
+                                        <li><a href="#cds">Congressional District Dashboard</a></li>
+                                    </ol>
+                                </li>
+                            </ol>
+                        </nav><!-- end #table-of-contents -->
+
+                        <div id="notes" class="group">
+                            <h2>Notes</h2>
+                            <a class="showhide"><i class="fa fa-angle-down"></i></a>
+                            <div class="showhide-target">
+                                <h3>Acknowledgements</h3>
+                                <p>This project is supported by the University of Arizona for financial and technical support to sustain this project. 
+                               <h3>Copyright and Commercial Use</h3>
+                                <p>This article is available to the general public without fee or other access control. 
+                                    Anyone may read this article or use it for their own personal or academic purposes. 
+                                    No commercial use of any kind is permitted unless specific permission is granted in writing in advance.</p>
+                            </div>
+                        </div><!-- end #notes -->
+
+                        <div id="download" class="group">
+                            <h2><i class="fa fa-download"></i> Download</h2>
+                            <div class="download-formats">
+                                <a class="download-file button" href="#">PDF</a>
+                            </div>
+                        </div><!-- end #download -->
+
+                    </div><!-- end .report-overview -->
+
+                </section><!-- end #front-matter -->
+
+<!-- BODY-TEXT -->
+<!-- The following sections contain the body content of the report.
+     Each section defines a major section or chapter of the report. -->
+
+                <section class="body-matter group stickem-container"><!-- Only used for .section-context element -->
+
+                    <h1>Body Matter</h1>
+
+<!-- Start: Section 1 - INTRODUCTION -->
+
+                    <section id="introduction" class="section anchor group">
+
+                        <div class="section-context stickem">
+                            <span class="section-context-label">Reading Now:</span>
+                            <ul class="nav">
+                                <li>
+                                    <a href="#introduction">1. The Survey</a>
+                                    <ul class="nav">
+                                        <li><a href="#thesample">1.1 Sample Information</a></li>
+                                        <li><a href="#results">1.2 Results</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#redistricting1">2. Redistricting and the Voter File </a>
+                                    <ul class="nav">
+                                        <li>
+                                            <a href="#redistricting2">2.1 Registration, Partisanship and Redistricting</a>
+                                        </li>
+                                        <li><a href="#lds">2.2 Legislative District Dashboard</a></li>
+                                        <li><a href="#cds">2.3 Congressional District Dashboard</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="quick-links">
+                            <span class="quick-links-item back-to-top"><a href="#content"><i class="fa fa-arrow-up"></i><br />Back to Top</a></span>
+                            <span class="quick-links-item next-section" style="display: none;"><a href="#">&nbsp;</a></span>
+                        </div>
+
+                        <div class="section-content group">
+                            <h2><span class="number">1. </span>Introduction</h2>
+                            <span class="permalink"><a href="#introduction"><i class="fa fa-link"></i> link to this section</a></span>
+                            <p>The Arizona Voter Project is a project funded by the University of Arizona</p>
+
+                            <section class="anchor" id="thesample">
+                                <h3><span class="number">1.1 </span>Information about the sample</h3>
+                                <p> This survey was completed by a large group of respondents. It is not a representative survey.</p>
+
+        
+                            </section>
+
+                            <section class="anchor" id="results">
+
+                                <h3><span class="number">1.2 </span>Results</h3>
+                                <h3><span class="number">1.2.1 </span>Voting and Donald Trump's Influence</h3>
+                                <h4>The Gubernatorial Race</h4>
+                                <p>Respondents were asked about their 2024 canddidate preference and whether Donald Trump or "Some Other Republican" should the the 2024 presidential nominee </p>
+                                <p>Hover over the image to display percentages. Those who prefer Trump, also preferred Trump's choice, Kari Lake </p>
+
+                                <div class='tableauPlaceholder' id='viz1661978977567' style='position: relative'><noscript><a href='#'>
+                                    <img alt='Governor Vote  and Trump NomineeThinking about the 2024 presidential election, who would you prefer as the Republican Party’s nominee? ' 
+                                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;go&#47;governor_16619789603440&#47;governor&#47;1_rss.png' 
+                                    style='border: none' /></a></noscript>
+                                    <object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+                                        <param name='embed_code_version' value='3' /> <param name='site_root' value='' />
+                                        <param name='name' value='governor_16619789603440&#47;governor' /><param name='tabs' value='no' /><param name='toolbar' value='yes' />
+                                        <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;go&#47;governor_16619789603440&#47;governor&#47;1.png' /> 
+                                        <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' />
+                                        <param name='display_overlay' value='yes' /><param name='display_count' value='yes' />
+                                        <param name='language' value='en-US' /></object></div>                
+                                        <script type='text/javascript'>                    
+                                        var divElement = document.getElementById('viz1661978977567');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='80%';vizElement.style.height=(divElement.offsetWidth*0.65)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+    <h4>The Senate Race</h4>
+    <p> It's pretty much the same pattern. Those who support Trump, support Trump's choice, Blake Masters. </p>
+    <p>Hover over the image to display percentages.  </p>
+
+    <div class='tableauPlaceholder' id='viz1661979716831' style='position: relative'><noscript><a href='#'><img alt='Senate Vote  and Trump NomineeThinking about the 2024 presidential election, who would you prefer as the Republican Party’s nominee? ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;go&#47;governor_16619789603440&#47;Senate&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='governor_16619789603440&#47;Senate' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;go&#47;governor_16619789603440&#47;Senate&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1661979716831');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='80%';vizElement.style.height=(divElement.offsetWidth*0.65)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+
+
+    <h3><span class="number">1.2.2 </span>Issue Attitudes</h3>
+    <h4>Abortion</h4>
+                                <p>This question asks about the legal consequences for abortion providers. Within the Democratic and Independent categories,  approximately 3/4 oppose or are not sure.  On the other hand,  a majority -- 60% -- of Republicans support these consequences.</p>
+
+                                <div class='tableauPlaceholder' id='viz1661979834127' style='position: relative'><noscript><a href='#'><img alt='Is there any point during pregnancy when abortion should be banned? ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;go&#47;governor_16619789603440&#47;Abortion&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='governor_16619789603440&#47;Abortion' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;go&#47;governor_16619789603440&#47;Abortion&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1661979834127');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='90%';vizElement.style.height=(divElement.offsetWidth*0.40)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>                                
+                                
+                                <p><br>Attitudes towards an abortion ban, across partisan stripes, are varied. While Republicans are more supportive of a complete ban, the percent reporting this is 32%. The most extreme response is endorsed by 32% of sampled Republicans. Similarly, 37% of sample Democrats support no limitations or restrictions. Majorities in both parties favor something less extreme such as restrictions after the first and second trimesters.</p>
+                                
+                                <div class='tableauPlaceholder' id='viz1661979972027' style='position: relative'><noscript><a href='#'><img alt='In Arizona, abortion is illegal from conception, except to save the mother&#39;s life. There is a mandatory prison sentence of two to five years for abortion providers. Do you support or oppose this law? ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;go&#47;governor_16619789603440&#47;Prison&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='governor_16619789603440&#47;Prison' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;go&#47;governor_16619789603440&#47;Prison&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1661979972027');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='90%';vizElement.style.height=(divElement.offsetWidth*0.60)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+ <h4>Guns</h4>
+
+ <p>There is widespread bipartisan support for raising the minimum age to own an assault rifle.</p>
+ <div class='tableauPlaceholder' id='viz1661980538920' style='position: relative'><noscript><a href='#'><img alt='In your opinion, should the minimum age to purchase assault rifles should be raised from 18 years old (the current age) to 21 years old in the state of Arizona? ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;go&#47;governor_16619789603440&#47;guns1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='governor_16619789603440&#47;guns1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;go&#47;governor_16619789603440&#47;guns1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1661980538920');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='90%';vizElement.style.height=(divElement.offsetWidth*0.55)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+
+ <p>There is not bipartisan support for restricting ownership.</p>
+ <div class='tableauPlaceholder' id='viz1661993130481' style='position: relative'><noscript><a href='#'><img alt='In your opinion, should individuals have the right to purchase and own assault weapons?  ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;go&#47;governor_16619789603440&#47;guns2&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='governor_16619789603440&#47;guns2' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;go&#47;governor_16619789603440&#47;guns2&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1661993130481');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='90%';vizElement.style.height=(divElement.offsetWidth*0.55)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script> 
+ <h3><span class="number">1.2.3 </span>Affective Polarization</h3>
+                                <p>Respondents completed a "feeling thermometer." This measure ranges from 0 to 10. The image below shows the means for several partisan groups. Hover over the bars to display mean estimates.</p>
+                                <iframe src=" https://thearizonavoter.org/d3/box/index.html" frameborder="0" height = "500px" width = "1000px"></iframe>
+                                <p>Those at the partisan extremes tend to be quite hostile towards elites, and to a lesser extent, "ordinary" members of the competing party.</p>
+
+
+<h3><span class="number">1.2.4 </span>Party Perceptions</h3>
+                                <p>Respondents completed a "feeling thermometer." This measure ranges from 0 to 10. The image below shows the means for several partisan groups. Hover over the bars to display mean estimates.</p>
+
+
+                                <div class='tableauPlaceholder' id='viz1661981242993' style='position: relative'><noscript><a href='#'><img alt='Would you say the Democratic Party in Arizona is:  Too conservative too liberal,  or about where it should be? ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;go&#47;governor_16619789603440&#47;Democrats&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='governor_16619789603440&#47;Democrats' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;go&#47;governor_16619789603440&#47;Democrats&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1661981242993');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='85%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+
+                                <p>Those at the partisan extremes tend to be quite hostile towards elites, and to a lesser extent, "ordinary" members of the competing party.</p>
+
+
+                                <div class='tableauPlaceholder' id='viz1661981367798' style='position: relative'><noscript><a href='#'><img alt='Would you say the Republican Party in Arizona is:  Too conservative too liberal,  or about where it should be? ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;go&#47;governor_16619789603440&#47;Republicans&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='governor_16619789603440&#47;Republicans' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;go&#47;governor_16619789603440&#47;Republicans&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1661981367798');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='85%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+
+                                
+                            </section>
+
+                            <section class="anchor" id="linking-desire-for-nature-with-dollars">
+                                <h3><span class="number">1.3 </span>Findings</h3>
+                                <ul>
+                                    <li>Donald Trump's endorsement of Kari Lake and Black Masters resonated with his supporters.</li>
+                                    <li>Clear partisan differences emerge on gun regulation and abortion policies. </li>
+                                    <li>Extreme partisans -- on both sides -- are generally quite hostile towards elites and members of the opposing party.</li>
+                                    <li>Important differences emerge in the perceived ideological orientation of the parties.</li>
+
+                                </ul>
+                            </section>
+
+                        </div><!-- end .section-content -->
+                    </section><!-- end #introduction -->
+
+<!-- End:   SECTION 1 - INTRODUCTION -->
+
+
+                    <section class="section anchor group" id="registration1">
+                        <div class="section-content group">
+                            <h2><span class="number">2. </span>Party Registration in Arizona</h2>
+\                            <span class="permalink"><a href="#the-economic-advantages-of-biophilia-in-sectors-of-society"><i class="fa fa-link"></i> link to this section</a></span>
+                            <p>The 2022 is the first federal election to follow the approved congressional districts [this wording needs to be checked.] 
+                                The figures below show the partisan composition of the new congressional districts. Each slice represents a district. 
+                                Hover over a slice to display information about that district. The size of each slice is scaled by a measure I call <strong>partisan tilt</strong>.
+                                This is a pretty silly name, but it doesn't really matter, so long as the measure is understood. It's the ratio of registered Republicans to registered 
+                                Democrats (measured following the 2020 election). These numbers need to be regularly updated -- and that's an ongoing project -- but for now, this will do.
+                                A larger slice represents a district that that has proportionately more registered Republicans than Democrats. Likewise, a tiny slice represents a district
+                                in which registered Democrats outnumber registered Republicans. A score of 1 represents a district that is balanced. There are as many Democrats as Republicans.
+                                What about Independents? After all, they generally outnumber members of a party. If one hovers over a slice, there is a measure called the <strong>swing score.</strong>
+                                I know. It's nonsense. Nonetheless, the swing score is the ratio of Independents to partisans in a district.
+                                If that's confusing, each slice shows the proportion of Republicans, Democrats, and Independents.
+                            </p>
+
+                                <iframe src=" https://thearizonavoter.org/d3/pie_partisanship/index.html" frameborder="0" height = "600px" width = "1000px"></iframe>
+
+                                <h3><span class="number">2.1 </span>Geography</h3>
+                                <p>There are many ways to think about the partisan composition of each district. For instance, how many partisans live in a particular neighborhood? In a general, sense of course. Here,
+                                I'll use the census tract. These are relatively large geographic units. The census reports these as areas of 1,200 to 8,000 people. They also report 
+                                aiming for a size of 4,000 people. <a href="https://www.census.gov/programs-surveys/geography/about/glossary.html#:~:text=Census%20Tract,-Census%20Tracts%20are&text=Census%20tracts%20generally%20have%20a,on%20the%20density%20of%20settlement.
+                                ">It's all here.</a></p>
+
+                                <div id="map" style = "height: 500px; width: 500px"></div>
+
+                                <h3><span class="number">2.2 </span>Dashboards</h3>
+
+
+  <script>
+  
+    var map = L.map('map', {
+      center: [34.5, -112.074036], // EDIT latitude, longitude to re-center map
+      zoom: 6.46,  // EDIT from 1 to 18 -- decrease to zoom out, increase to zoom in
+      scrollWheelZoom: false,
+      tap: false
+    });
+  
+    /* Control panel to display map layers */
+    var controlLayers = L.control.layers( null, null, {
+      position: "bottomright",
+      collapsed: false
+    }).addTo(map);
+  
+  
+  var Stamen_Toner = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}{r}.{ext}', {
+      attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      subdomains: 'abcd',
+      ext: 'png'
+  }).addTo(map)
+  
+    $.get('map/data.csv', function(csvString) {
+  
+  // Use PapaParse to convert string to array of objects
+  var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
+  
+  // For each row in data, create a marker and add it to the map
+  // For each row, columns `Latitude`, `Longitude`, and `Title` are required
+  for (var i in data) {
+    var row = data[i];
+  if (row.party_identification == "Republican (REP)"){
+    var circle = L.circleMarker([row.latitude, row.longitude], {
+      radius: row.cell_count/100,
+      fillOpacity: 0.06,
+      opacity: 0.05,
+      fillColor: "red"
+        })
+    circle.addTo(map);
+  }
+  }
+  for (var i in data) {
+    var row = data[i];
+  if (row.party_identification == "Democrat (DEM)"){
+    var circle = L.circleMarker([row.latitude, row.longitude], {
+      className: 'pulse',
+      radius: row.cell_count/100,
+      fillOpacity: 0.06,
+      opacity: 0.05,
+      fillColor: "blue"
+        })
+    circle.addTo(map);
+  }}
+  
+  });
+  
+  
+  $.getJSON("cds.json", function(data){
+    L.geoJson(data, {
+      style: function (feature) {
+          return {
+      color: "darkgreen",
+      weight: 2,
+      fillColor: "white"}},
+      onEachFeature: function(feature, layer){
+          var out = layer.feature.properties.DIST_INT;
+          layer.bindTooltip("CD: " + out,
+          {
+      direction: 'left',
+      permanent: false,
+      sticky: true,
+      font: '50px',
+      offset: [10, 0],
+      opacity: 0.3,
+      className: 'leaflet-tooltip-own' 
+  });
+        }}).addTo(map);
+      ;
+    })
+    
+  </script>
+
+
+
+     <h3><span class="number" id="lds">2.2 </span></h3>
+               <p>Here are some dashboards, one for the new legislative districts, the other congressional. These are sort of work in progress.</p>        
+                 <p>If you get a note that says animations paused, just exit out. It lags a bit, but it works. And you can filter information by clicking on the table.</p>           
+               <div class='tableauPlaceholder' id='viz1661994381417' style='position: relative'><noscript><a href='#'><img alt='legislative_dash ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;ld&#47;ld_dashboard_public_01&#47;legislative_dash&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='ld_dashboard_public_01&#47;legislative_dash' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;ld&#47;ld_dashboard_public_01&#47;legislative_dash&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1661994381417');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1000px';vizElement.style.height='827px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+   <h3><span class="number" id="lcs">2.3 </span></h3>
+   <p>Here are CDs.</p>        
+
+                            <div class='tableauPlaceholder' id='viz1661994634070' style='position: relative'><noscript><a href='#'><img alt='cd_dash ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;cd&#47;cd_public_01&#47;cd_dash&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='cd_public_01&#47;cd_dash' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;cd&#47;cd_public_01&#47;cd_dash&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1661994634070');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1000px';vizElement.style.height='827px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+            
+            
+                            <div id="my_popup-share" class="group my_popup-share my_popup-section">
+                <h3><i class="fa fa-share"></i> Share</h3>
+                <span class='st_twitter_large' displayText='Tweet'></span>
+                <span class='st_facebook_large' displayText='Facebook'></span>
+                <span class='st_googleplus_large' displayText='Google +'></span>
+                <span class='st_linkedin_large' displayText='LinkedIn'></span>
+                <span class='st_email_large' displayText='Email'></span>
+            </div>
+            <div class="my_popup-close-button"><a class="my_popup_close my_popup_close-x"><i class="fa fa-times"></i></a></div>
+        </div>
+
+
+
+        <div class="bp-indicator">
+            <div class="bp-item bp-small"><img src="img/bpidentifier-default.gif">Default: Small</div>
+            <div class="bp-item bp-small-1"><img src="img/bpidentifier-small-1.gif">Small 1</div>
+            <div class="bp-item bp-small-2"><img src="img/bpidentifier-small-2.gif">Small 2</div>
+            <div class="bp-item bp-medium"><img src="img/bpidentifier-medium.gif">Medium</div>
+            <div class="bp-item bp-medium-1"><img src="img/bpidentifier-medium-1.gif">Medium 1</div>
+            <div class="bp-item bp-medium-2"><img src="img/bpidentifier-medium-2.gif">Medium 2</div>
+            <div class="bp-item bp-large"><img src="img/bpidentifier-large.gif">Large</div>
+            <div class="bp-item bp-large-1"><img src="img/bpidentifier-large-1.gif">Large 1</div>
+            <div class="bp-item bp-large-2"><img src="img/bpidentifier-large-2.gif">Large 2</div>
+            <div class="bp-item bp-large-3"><img src="img/bpidentifier-large-3.gif">Large 3</div>
+        </div>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/vendor/jquery.easing.1.3.js"></script>
+        <script src="js/vendor/jquery.scrollTo.js"></script>
+        <script src="js/vendor/jquery.popupoverlay.js"></script>
+        <script src="js/vendor/jquery.stickem.js"></script>
+        <script src="js/vendor/scrollspy.js"></script>
+        <script src="js/vendor/scroll.handler.js"></script>
+
+<!--        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/vendor/jquery.stickem.js"></script>
+
+        <script>
+          $(document).ready(function() {
+              $('.article-container').stickem();
+          });
+          $(window).bind("load", function() {
+          var sticky = $('.article-container').stickem();
+              sticky.destroy();
+          $('.article-container').stickem();
+          });
+        </script>
+
+        <script src="js/vendor/extras.js"></script>
+
+        <script src="http://vast-engineering.github.io/jquery-popup-overlay/jquery.popupoverlay.js"></script>
+
+        <script>
+            $('#my_popup').popup({
+              scrolllock: true,
+              transition: '0.2s all',
+              onopen: function(){
+                $('#my_popup').data().popupoptions.closetransitionend = null;
+              }
+            });
+
+            $(".localnav").click(function(event) {
+              event.preventDefault();
+              $('#my_popup').data().popupoptions.closetransitionend = function () {
+                $('html, body').animate({
+                  scrollTop: $($('#my_popup').data('onclose-href')).offset().top
+                }, 1000, function() {
+                  window.location.hash = $('#my_popup').data('onclose-href');
+                });
+              };
+              $('#my_popup').data('onclose-href', $(this).attr('href')).popup('hide');
+            });
+        </script> -->
+
+        <script type="text/javascript">var switchTo5x=true;</script>
+        <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+        <script type="text/javascript">stLight.options({publisher: "8e09226a-1f42-4cf1-9011-6df4b347f9d4", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+    </body>
+</html>
