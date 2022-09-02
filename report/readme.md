@@ -1,11 +1,9 @@
-# HTML Report Template
-
-A customizable, responsive. static HTML template designed to make publishing long reports in HTML easy.
+# A report on the project
 
 ## Coming soon. 
 
-I still need to clean out the current content and neutralize things.
+I need to update stuff
 
 ## Demo
 
-[The Economics of Biophilia](http://www.terrapinbrightgreen.com/reports/the-economics-of-biophilia/) by Terrapin Bright Green
+[The Arizona Voter](http://thearizonavoter.org/report) by Terrapin Bright Green
