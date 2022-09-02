@@ -6,4 +6,4 @@ I need to update stuff
 
 ## Demo
 
-[The Arizona Voter](http://thearizonavoter.org/report) by Terrapin Bright Green
+[The Arizona Voter](http://thearizonavoter.org/report) by Chris
