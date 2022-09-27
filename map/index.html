@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>The Arizona Voter</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="style.css" />
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="map.js"></script>
+
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+<!-- Load jQuery and PapaParse to read data from a CSV file -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script>
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/s3Slider.js"></script>
+
+  
+<div id="map" class = "left_box", style = "height: 800px; width: 800px"></div>
+
+<!-- Create a map, all the script is below, it can be adjusted -->
+<script>
+  
+  var map = L.map('map', {
+    center: [34.5, -112.074036], // EDIT latitude, longitude to re-center map
+    zoom: 7.46,  // EDIT from 1 to 18 -- decrease to zoom out, increase to zoom in
+    scrollWheelZoom: false,
+    tap: false
+  });
+
+  /* Control panel to display map layers */
+  var controlLayers = L.control.layers( null, null, {
+    position: "bottomright",
+    collapsed: false
+  }).addTo(map);
+
+
+var Stamen_Toner = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}{r}.{ext}', {
+	attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+	subdomains: 'abcd',
+	ext: 'png'
+}).addTo(map)
+
+  $.get('data.csv', function(csvString) {
+
+// Use PapaParse to convert string to array of objects
+var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
+
+// For each row in data, create a marker and add it to the map
+// For each row, columns `Latitude`, `Longitude`, and `Title` are required
+for (var i in data) {
+  var row = data[i];
+if (row.party_identification == "Republican (REP)"){
+  var circle = L.circleMarker([row.latitude, row.longitude], {
+    radius: row.cell_count/100,
+    fillOpacity: 0.06,
+    opacity: 0.05,
+    fillColor: "red"
+      })
+  circle.addTo(map);
+}
+}
+for (var i in data) {
+  var row = data[i];
+if (row.party_identification == "Democrat (DEM)"){
+  var circle = L.circleMarker([row.latitude, row.longitude], {
+    className: 'pulse',
+    radius: row.cell_count/100,
+    fillOpacity: 0.06,
+    opacity: 0.05,
+    fillColor: "blue"
+      })
+  circle.addTo(map);
+}}
+
+});
+
+
+$.getJSON("cds.json", function(data){
+  L.geoJson(data, {
+    style: function (feature) {
+		return {
+    color: "darkgreen",
+    weight: 2,
+    fillColor: "white"}},
+    onEachFeature: function(feature, layer){
+        var out = layer.feature.properties.DIST_INT;
+        layer.bindTooltip("CD: " + out,
+        {
+    direction: 'left',
+    permanent: false,
+    sticky: true,
+    font: '50px',
+    offset: [10, 0],
+    opacity: 0.3,
+    className: 'leaflet-tooltip-own' 
+});
+      }}).addTo(map);
+    ;
+  })
+
+
+
+  
+</script>
+
+
+
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
+<script src="pie/cds_pie.js"></script>
+
+</html>
