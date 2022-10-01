@@ -1,7 +1,7 @@
 // set the dimensions and margins of the graph
-var width = 450
-    height = 450
-    margin = 40
+var width = 300
+    height = 300
+    margin = 10
 
 var radius = Math.min(width, height) / 2 - margin
 
@@ -39,7 +39,7 @@ const arcPath = d3.arc()
                 .outerRadius(radius)
                 .innerRadius(0)
 
-d3.csv("cds.csv").then(function(data) {
+d3.csv("d3/pie_partisanship/cds.csv").then(function(data) {
     data.forEach(d =>{
       d.swing         = formatRound(parseInt(d.Independents)/(parseInt(d.Republicans) + parseInt(d.Democrats)))
       d.partisan_tilt = formatRound((parseInt(d.Republicans) / parseInt(d.Democrats)))
