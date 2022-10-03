@@ -439,6 +439,7 @@ dat.to_csv("geo_ld.csv")
 
 From here, move to a google cloud storage bucket. I uploaded these myself, but that's unnecessary. Then run this to create to files, ld-shape and cd-shape
 
+```
 -- SELECT 
 --   cd as legislative_district, 
 --   st_geogfromgeojson(geo) as geometry,
@@ -449,3 +450,4 @@ SELECT
   cd as legislative_district, 
   st_geogfromgeojson(geo) as geometry,
 FROM `az-voter-file.public_data.geo_legislative_districts` 
+```
