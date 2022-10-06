@@ -5,22 +5,25 @@
     <meta name="keywords" content="Sign up and get fresh loot for popular games plus more, Our Story, Innovation in the gameindustry, Sign up and get fresh loot for popular games plus more, Game Gadgets, Download games and play free games every month.">
     <meta name="description" content="">
     <title>Home</title>
+
+
     <link rel="stylesheet" href="nicepage.css" media="screen">
-<link rel="stylesheet" href="Home.css" media="screen">
+    <link rel="stylesheet" href="Home.css" media="screen">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="d3/pie_partisanship/d3-tip.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
     <meta name="generator" content="Nicepage 4.18.5, nicepage.com">
+    <link rel="stylesheet" href="map/app.css" >
+
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    <!-- Load jQuery and PapaParse to read data from a CSV file -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script>
     
     <script type="application/ld+json">{
 		"@context": "http://schema.org",
@@ -31,7 +34,7 @@
     <meta property="og:title" content="Home">
     <meta property="og:type" content="website">
   </head>
-  <body class="u-body u-xl-mode" data-lang="en"><header class="u-align-center-xs u-border-1 u-border-grey-25 u-clearfix u-header u-header" id="sec-d471"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+  <body data-home-page="Home.html" data-home-page-title="Home" class="u-body u-xl-mode" data-lang="en"><header class="u-align-center-xs u-border-1 u-border-grey-25 u-clearfix u-header u-header" id="sec-d471"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <form action="#" method="get" class="u-border-1 u-border-grey-15 u-expanded-width-xs u-search u-search-right u-search-1">
           <button class="u-search-button" type="submit">
             <span class="u-search-icon u-spacing-10 u-text-grey-40">
@@ -72,8 +75,9 @@
       </div></header>
     <section class="u-align-center u-clearfix u-image u-section-1" id="carousel_bad5" data-image-width="6715" data-image-height="3264">
       <div class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xl u-sheet-1">
-        <h2 class="u-text u-text-1">The Arizona Voter</h2>
-        <p class="u-text u-text-2">A Place for Stuff about the Political Behavior</p>
+        <h2 class="u-text u-text-1" style = "     text-shadow: 4px 4px 5px darkgrey; /* FF3.5+, Opera 9+, Saf1+, Chrome, IE10 */
+        ; color: black;  border: 3px solid white; padding: 14px 10px 10px 10px" >The Arizona Voter</h2>
+        <p class="u-text u-text-2">A Place for Stuff</p>
       </div>
     </section>
     <section class="u-clearfix u-section-2" id="carousel_9569">
@@ -86,7 +90,7 @@
                   <div class="u-align-center u-container-style u-layout-cell u-size-60 u-layout-cell-1">
                     <div class="u-container-layout u-container-layout-1">
                       <h2 class="u-text u-text-1">The Arizona Voter</h2>
-                      <p class="u-text u-text-grey-40 u-text-2">This site serves as a platform to launch content for The Arizona Voter Project. It includes visualizations, data, reports and other information perhaps useful in your quest to learn more about the Arizona electorate.<br>
+                      <p class="u-text u-text-grey-40 u-text-2">This site serves as a place to think about stuff related to the The Arizona Voter Project. It includes visualizations, data.. .<br>
                         <br>
                       </p>
                     </div>
@@ -117,7 +121,7 @@
     </section>
     <section class="u-align-center u-clearfix u-section-3" id="sec-a584">
       <div class="u-clearfix u-sheet u-sheet-1">
-        <h5 class="u-text u-text-default u-text-1">THe Arizona Voter</h5>
+        <h5 class="u-text u-text-default u-text-1">The Arizona Voter</h5>
         <h1 class="u-text u-text-default u-text-2">Redistricting in Arizona</h1>
       </div>
     </section>
@@ -128,20 +132,30 @@
             <li data-u-target="#carousel-8d1d" class="u-active u-active-palette-1-base u-hover-palette-1-base u-palette-1-light-2 u-shape-circle" data-u-slide-to="0" style="width: 22px; height: 22px;"></li>
             <li data-u-target="#carousel-8d1d" class="u-active-palette-1-base u-hover-palette-1-base u-palette-1-light-2 u-shape-circle" data-u-slide-to="1" style="width: 22px; height: 22px;"></li>
           </ol>
+
           <div class="u-carousel-inner" role="listbox">
             <div class="u-active u-carousel-item u-container-style u-slide">
+              
               <div class="u-container-layout u-valign-top u-container-layout-1">
-                <div class="u-align-center-md u-align-center-sm u-align-center-xs u-align-left-lg u-align-left-xl u-container-style u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-radius-20 u-shape-round u-white u-group-1">
-                  <div class="u-container-layout u-container-layout-2">
-                    <h3 class="u-text u-text-palette-1-base u-text-1">Dashboards</h3>
-                    <p class="u-text u-text-2">Redistricting in Arizona</p>
+                <div   class="u-align-center-md u-align-center-sm u-align-center-xs u-align-left-lg u-align-left-xl u-container-style u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-radius-20 u-shape-round u-white u-group-1">
+                  <div   class="u-container-layout u-container-layout-2">
+                    <h3 class="u-text u-text-palette-1-base u-text-3"> Geocoding</h3>
+                    <p class="u-text u-text-2"> Arizona voters are geocoded into census tracts, blocks, congressional districts, and legislative districts.</p>
+                      <!-- <iframe src="https://public.tableau.com/views/congressional_districts_v03/congressional_districts?:language=en-US&:display_count=n&:origin=viz_share_link?:showVizHome=no&:embed=true" height = "400px" width = "400px" name="frame2" id="frame2" frameborder="0" marginwidth="0" marginheight="0" scrolling="auto" onload="" allowtransparency="false"></iframe> -->
+
+
                   </div>
                 </div>
-                <div class="u-align-center-md u-align-center-sm u-align-center-xs u-align-left-lg u-align-left-xl u-container-style u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-radius-20 u-shape-round u-white u-group-2">
+
+                <div   class="u-align-center-md u-align-center-sm u-align-center-xs u-align-left-lg u-align-left-xl u-container-style u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-radius-20 u-shape-round u-white u-group-2">
                   <div class="u-container-layout u-container-layout-3">
-                    <h3 class="u-text u-text-palette-1-base u-text-3">Dashboards</h3>
-                    <p class="u-text u-text-4">Redistricting in Arizona</p>
+                    <h3 class="u-text u-text-palette-1-base u-text-1">The Voter File</h3>
+                    <p class="u-text u-text-2"> I rely primarily on the Arizona Secretary of State's Voter file to create visualizations of the Arizona electorate.</p>
+
+                  <!-- <iframe src="https://public.tableau.com/views/congressional_districts_v03/congressional_districts?:language=en-US&:display_count=n&:origin=viz_share_link?:showVizHome=no&:embed=true" height = "400px" width = "400px" name="frame2" id="frame2" frameborder="0" marginwidth="0" marginheight="0" scrolling="auto" onload="" allowtransparency="false"></iframe> -->
+
                   </div>
+                
                 </div>
               </div>
             </div>
@@ -149,11 +163,14 @@
               <div class="u-container-layout u-container-layout-4">
                 <div class="u-align-center-md u-align-center-sm u-align-center-xs u-align-left-lg u-align-left-xl u-container-style u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-radius-20 u-shape-round u-white u-group-3">
                   <div class="u-container-layout u-valign-middle u-container-layout-5">
-                    <h3 class="u-text u-text-palette-1-base u-text-5">Free games included with Prime, yours to keep forever</h3>
-                    <p class="u-text u-text-6">Sample text. Click to select the text box. Click again or double click to start editing the text.&nbsp;Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.&nbsp;</p>
-                  </div>
+                    <h3 class="u-text u-text-palette-1-base u-text-5">Classification</h3>
+                    <p class="u-text u-text-6">All voters have a "vote history." Use that vote history to train a machine learning algorithm -- a neural network -- to classify voters as as high or low engagement voters.  
+                  
+                      &nbsp;Then -- so as to maintain individual I aggregate voters to larger geographic areas, such as census blocks .&nbsp;</p>
+                      </div>
                 </div>
-                <img src="images/pexels-photo-4009589.jpeg" alt="" class="u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-image u-image-round u-radius-20 u-image-1" data-image-width="1000" data-image-height="1500">
+
+                <img src="images/ballot.jpeg" alt="" class="u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-image u-image-round u-radius-20 u-image-1" data-image-width="1000" data-image-height="1500">
               </div>
             </div>
           </div>
@@ -178,23 +195,43 @@
             </span>
           </a>
         </div>
-        <a href="https://nicepage.app" class="u-align-center u-btn u-button-style u-hover-white u-palette-1-base u-btn-1">View The REport</a>
+        <a href="https://nicepage.app" class="u-align-center u-btn u-button-style u-hover-white u-palette-1-base u-btn-1">View The Report</a>
       </div>
+
+
+
     </section>
-    <section class="u-clearfix u-image u-section-5" src="" id="carousel_d9f7" data-image-width="2250" data-image-height="1500">
+
+    <div class="u-clearfix u-sheet u-sheet-1">
+      <h1 class="u-text u-text-default u-text-1">The Arizona Voter</h1>
+      <h5 class="u-text u-text-default u-text-2">Redistricting in Arizona</h5>
+      <p>I used a machine learning approach -- known as the neural network -- to predict the 
+        likelihood of whether one is a highly engaged voter. What is a "highly engaged voter"? 
+        Someone who votes in primaries and midterm generals and primaries. 
+        It's important to include midterm general election voters, 
+        as it's reasonable to anticipate some voters are highly engaged and interested,
+         but disinterested in participating in partisan primaries in a very divided state. <b>You can filter information in the dashboard -- select a particular district. <emph> These are the 2022 districts.</emph></b></p>
+         <iframe src="https://public.tableau.com/views/congressional_districts_v05/CD_Dashboard?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link?:showVizHome=no&:embed=true" height = "900px" width = "1000px" name="frame2" id="frame2" frameborder="0" marginwidth="0" marginheight="0" scrolling="auto" onload="" allowtransparency="false"></iframe> 
+         <p>I replicated the same procedure for the new legislative districts. Note that the diamonds' appearance remains unchanged. All that changes is that I now overlay legislative districts on these points. <b>You can filter information in the dashboard -- select a particular district. <emph> These are the 2022 districts.</emph></b></p>
+         <iframe src="https://public.tableau.com/views/legislative_districts_05/LD_Dash?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link?:showVizHome=no&:embed=true" height = "900px" width = "1000px" name="frame2" id="frame2" frameborder="0" marginwidth="0" marginheight="0" scrolling="auto" onload="" allowtransparency="false"></iframe> 
+
+        </div>
+
+   
+    <section class="u-clearfix u-image u-section-5" src="" id="carousel_d9f7" data-image-width="2250" data-image-height="600">
       <div class="u-clearfix u-sheet u-sheet-1">
         <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
           <div class="u-layout">
             <div class="u-layout-row">
               <div class="u-align-right u-container-style u-image u-layout-cell u-right-cell u-size-30 u-image-1" data-image-width="2520" data-image-height="1418">
                 <div class="u-container-layout u-valign-top-md u-container-layout-1">
-                  <h2 class="u-align-left u-text u-text-body-alt-color u-text-1">Innovation in the game<br>industry
+                  <h2 class="u-align-left u-text u-text-body-alt-color u-text-1">Political Psychology,<br> American Politics
                   </h2>
                 </div>
               </div>
               <div class="u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-2">
                 <div class="u-container-layout u-valign-bottom-lg u-valign-bottom-md u-valign-bottom-sm u-valign-bottom-xs u-container-layout-2">
-                  <p class="u-align-right u-text u-text-2">space programs<br>Tech Trends&nbsp;<br>Latest news<br>About Us<br>
+                  <p class="u-align-right u-text u-text-2">and trends in public opinion and political behavior.&nbsp;
                   </p>
                 </div>
               </div>
@@ -210,12 +247,12 @@
             <div class="u-layout-row">
               <div class="u-container-style u-layout-cell u-size-33-lg u-size-33-md u-size-33-sm u-size-33-xs u-size-36-xl u-layout-cell-1">
                 <div class="u-container-layout u-valign-top-lg u-valign-top-md u-valign-top-sm u-valign-top-xs u-container-layout-1">
-                  <h2 class="u-text u-text-1">Sign up and get fresh loot for popular games plus more</h2>
+                  <h2 class="u-text u-text-1">Primaries in Arizona</h2>
                 </div>
               </div>
               <div class="u-align-right u-container-style u-layout-cell u-size-24-xl u-size-27-lg u-size-27-md u-size-27-sm u-size-27-xs u-layout-cell-2">
                 <div class="u-container-layout u-valign-bottom-lg u-valign-bottom-md u-valign-bottom-xl u-container-layout-2">
-                  <h5 class="u-text u-text-2">Come back every month to claim your loot.<br>
+                  <h5 class="u-text u-text-2">Data from a pre-election survey<br>
                   </h5>
                 </div>
               </div>
@@ -224,7 +261,105 @@
         </div>
       </div>
     </section>
-    <section class="u-align-center u-clearfix u-section-7" id="carousel_4ec1">
+    <div>
+                    <html style="font-family:Helvetica,Arial,Sans">
+                        <head><title>Summary Statistics</title><style type = "text/css">
+                        p {
+                        font-size:smaller;
+                        }
+                        table {
+                        border: 0px;
+                        border-collapse:collapse;
+                        font-size:smaller;
+                        table-layout:fixed;
+                        margin-left:0%;
+                        margin-right:auto;
+                        }
+                        .headtab {
+                        width: 100%;
+                        margin-left:auto;
+                        margin-right:auto;
+                        }
+                        th {
+                        background-color: #FFFFFF;
+                        font-weight:bold;
+                        text-align:left;
+                        }
+                        table tr:nth-child(odd) td {
+                        background-color: #FFFFFF;
+                        padding:4px;
+                        word-wrap: break-word;
+                        word-break:break-all;
+                        }
+                        table tr:nth-child(even) td {
+                        background-color: #D3D3D3;
+                        padding:4px;
+                        word-wrap: break-word;
+                        word-break:break-all;
+                        }</style></head><body> 
+    <table class="headtab"> 
+ <h1> Summary Statistics </h1><table><tr><th style = "width:22%; text-align:left">Variable</th><th style = "width:11%; text-align:right">N</th><th style = "width:11%; text-align:right">Mean</th><th style = "width:11%; text-align:right">SD</th><th style = "width:11%; text-align:right">Min</th><th style = "width:11%; text-align:right">25th percentile</th><th style = "width:11%; text-align:right">75th percentile</th><th style = "width:11%; text-align:right">Max</th></tr>
+    <tr><td style = "width:22%; text-align:left">Party ID</td><td style = "width:11%; text-align:right">868</td><td style = "width:11%; text-align:right"></td><td style = "width:11%; text-align:right"></td><td style = "width:11%; text-align:right"></td><td style = "width:11%; text-align:right"></td><td style = "width:11%; text-align:right"></td><td style = "width:11%; text-align:right"></td></tr>
+    <tr><td style = "width:22%; text-align:left">... Democrat</td><td style = "width:11%; text-align:right">279</td><td style = "width:11%; text-align:right">32.1%</td><td style = "width:11%; text-align:right"></td><td style = "width:11%; text-align:right"></td><td style = "width:11%; text-align:right"></td><td style = "width:11%; text-align:right"></td><td style = "width:11%; text-align:right"></td></tr>
+    <tr><td style = "width:22%; text-align:left">... Independent</td><td style = "width:11%; text-align:right">280</td><td style = "width:11%; text-align:right">32.3%</td><td style = "width:11%; text-align:right"></td><td style = "width:11%; text-align:right"></td><td style = "width:11%; text-align:right"></td><td style = "width:11%; text-align:right"></td><td style = "width:11%; text-align:right"></td></tr>
+    <tr><td style = "width:22%; text-align:left">... Republican</td><td style = "width:11%; text-align:right">309</td><td style = "width:11%; text-align:right">35.6%</td><td style = "width:11%; text-align:right"></td><td style = "width:11%; text-align:right"></td><td style = "width:11%; text-align:right"></td><td style = "width:11%; text-align:right"></td><td style = "width:11%; text-align:right"></td></tr>
+    <tr><td style = "width:22%; text-align:left">Ideology (7 point scale)</td><td style = "width:11%; text-align:right">881</td><td style = "width:11%; text-align:right">4.090</td><td style = "width:11%; text-align:right">1.714</td><td style = "width:11%; text-align:right">1</td><td style = "width:11%; text-align:right">3</td><td style = "width:11%; text-align:right">5</td><td style = "width:11%; text-align:right">7</td></tr>
+    <tr><td style = "width:22%; text-align:left">College</td><td style = "width:11%; text-align:right">977</td><td style = "width:11%; text-align:right">0.291</td><td style = "width:11%; text-align:right">0.454</td><td style = "width:11%; text-align:right">0</td><td style = "width:11%; text-align:right">0</td><td style = "width:11%; text-align:right">1</td><td style = "width:11%; text-align:right">1</td></tr>
+    <tr><td style = "width:22%; text-align:left">Age</td><td style = "width:11%; text-align:right">977</td><td style = "width:11%; text-align:right">45.482</td><td style = "width:11%; text-align:right">18.880</td><td style = "width:11%; text-align:right">18</td><td style = "width:11%; text-align:right">29</td><td style = "width:11%; text-align:right">62</td><td style = "width:11%; text-align:right">104</td></tr>
+    </table>
+    
+
+        
+                                <h3><span class="number"></span>Voting and Donald Trump's Influence</h3>
+                                <p style = "color:darkgrey">Respondents were asked about their 2024 canddidate preference and whether Donald Trump or "Some Other Republican" should the the 2024 presidential nominee. Hover over the image to display percentages. Those who prefer Trump, also preferred Trump's choice, Kari Lake</p>
+                                <div class='tableauPlaceholder' id='viz1661978977567' style='position: relative'><noscript><a href='#'>
+                                    <img alt='Governor Vote  and Trump NomineeThinking about the 2024 presidential election, who would you prefer as the Republican Party’s nominee? ' 
+                                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;go&#47;governor_16619789603440&#47;governor&#47;1_rss.png' 
+                                    style='border: none' /></a></noscript>
+                                    <object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+                                        <param name='embed_code_version' value='3' /> <param name='site_root' value='' />
+                                        <param name='name' value='governor_16619789603440&#47;governor' /><param name='tabs' value='no' /><param name='toolbar' value='yes' />
+                                        <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;go&#47;governor_16619789603440&#47;governor&#47;1.png' /> 
+                                        <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' />
+                                        <param name='display_overlay' value='no' /><param name='display_count' value='yes' />
+                                        <param name='language' value='en-US' /></object></div>                
+                                        <script type='text/javascript'>                    
+                                        var divElement = document.getElementById('viz1661978977567');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='80%';vizElement.style.height=(divElement.offsetWidth*0.60)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+    <h3>The Senate Race</h3>
+    <div class='tableauPlaceholder' id='viz1661979716831' style='position: relative'><noscript><a href='#'><img alt='Senate Vote  and Trump NomineeThinking about the 2024 presidential election, who would you prefer as the Republican Party’s nominee? ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;go&#47;governor_16619789603440&#47;Senate&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='governor_16619789603440&#47;Senate' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;go&#47;governor_16619789603440&#47;Senate&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1661979716831');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='80%';vizElement.style.height=(divElement.offsetWidth*0.65)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+
+
+  </div><!-- end .section-content -->
+
+  <h3>Issue Attitudes</h3>
+  <h3>Abortion</h3>
+                              <p style = "color:rgb(44, 43, 43)">This question asks about the legal consequences for abortion providers. Within the Democratic and Independent categories,  approximately 3/4 oppose or are not sure.  On the other hand,  a majority -- 60% -- of Republicans support these consequences.</p>
+
+                              <div class='tableauPlaceholder' id='viz1661979834127' style='position: relative'><noscript><a href='#'><img alt='Is there any point during pregnancy when abortion should be banned? ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;go&#47;governor_16619789603440&#47;Abortion&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='governor_16619789603440&#47;Abortion' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;go&#47;governor_16619789603440&#47;Abortion&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1661979834127');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='80%';vizElement.style.height=(divElement.offsetWidth*0.34)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>                                
+                              
+                              <p><br>Attitudes towards an abortion ban, across partisan stripes, are varied. While Republicans are more supportive of a complete ban, the percent reporting this is 32%. The most extreme response is endorsed by 32% of sampled Republicans. Similarly, 37% of sample Democrats support no limitations or restrictions. Majorities in both parties favor something less extreme such as restrictions after the first and second trimesters.</p>
+                              
+                              <div class='tableauPlaceholder' id='viz1661979972027' style='position: relative'><noscript><a href='#'><img alt='In Arizona, abortion is illegal from conception, except to save the mother&#39;s life. There is a mandatory prison sentence of two to five years for abortion providers. Do you support or oppose this law? ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;go&#47;governor_16619789603440&#47;Prison&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='governor_16619789603440&#47;Prison' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;go&#47;governor_16619789603440&#47;Prison&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1661979972027');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='90%';vizElement.style.height=(divElement.offsetWidth*0.35)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+<h3>Guns</h3>
+
+<p>There is  bipartisan support for raising the minimum age to own an assault rifle.</p>
+<div class='tableauPlaceholder' id='viz1661980538920' style='position: relative'><noscript><a href='#'><img alt='In your opinion, should the minimum age to purchase assault rifles should be raised from 18 years old (the current age) to 21 years old in the state of Arizona? ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;go&#47;governor_16619789603440&#47;guns1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='governor_16619789603440&#47;guns1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;go&#47;governor_16619789603440&#47;guns1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1661980538920');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='90%';vizElement.style.height=(divElement.offsetWidth*0.65)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+
+<p>There is not bipartisan support for restricting ownership.</p>
+<p></p>
+<div class='tableauPlaceholder' id='viz1661993130481' style='position: relative'><noscript><a href='#'><img alt='In your opinion, should individuals have the right to purchase and own assault weapons?  ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;go&#47;governor_16619789603440&#47;guns2&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='governor_16619789603440&#47;guns2' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;go&#47;governor_16619789603440&#47;guns2&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1661993130481');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='70%';vizElement.style.height=(divElement.offsetWidth*0.65)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script> 
+<h3>Affective Polarization</h3>
+                              <p>Respondents completed a "feeling thermometer." This measure ranges from 0 to 10. The image below shows the means for several partisan groups. Hover over the bars to display mean estimates.</p>
+<iframe src=" https://thearizonavoter.org/d3/box/index.html" frameborder="0" height = "500px" width = "500px"></iframe>
+<p>Those at the partisan extremes tend to be  hostile towards elites, and to a lesser extent, "ordinary" members of the competing party.</p>
+
+<h3>Party Perceptions</h3>
+<p>Respondents completed a "feeling thermometer." This measure ranges from 0 to 10. The image below shows the means for several partisan groups. Hover over the bars to display mean estimates.</p>
+<div class='tableauPlaceholder' id='viz1661981242993' style='position: relative'><noscript><a href='#'><img alt='Would you say the Democratic Party in Arizona is:  Too conservative too liberal,  or about where it should be? ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;go&#47;governor_16619789603440&#47;Democrats&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='governor_16619789603440&#47;Democrats' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;go&#47;governor_16619789603440&#47;Democrats&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1661981242993');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='65%';vizElement.style.height=(divElement.offsetWidth*0.60 
+<div class='tableauPlaceholder' id='viz1661981367798' style='position: relative'><noscript><a href='#'><img alt='Would you say the Republican Party in Arizona is:  Too conservative too liberal,  or about where it should be? ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;go&#47;governor_16619789603440&#47;Republicans&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='governor_16619789603440&#47;Republicans' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;go&#47;governor_16619789603440&#47;Republicans&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1661981367798');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='65%';vizElement.style.height=(divElement.offsetWidth*0.60)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+
+
+    <!-- <section class="u-align-center u-clearfix u-section-7" id="carousel_4ec1">
       <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
           <div class="u-gutter-0 u-layout">
@@ -280,13 +415,13 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <section class="u-clearfix u-section-8" id="carousel_0665">
       <div class="u-expanded-width u-gallery u-layout-grid u-lightbox u-no-transition u-show-text-on-hover u-gallery-1">
         <div class="u-gallery-inner u-gallery-inner-1">
           <div class="u-effect-fade u-gallery-item">
             <div class="u-back-slide" data-image-width="1000" data-image-height="1500">
-              <img class="u-back-image u-expanded" src="images/pexels-photo-4009626.jpeg">
+              <img class="u-back-image u-expanded" src="images/tucson.jpeg">
             </div>
             <div class="u-over-slide u-shading u-over-slide-1">
               <h3 class="u-gallery-heading"></h3>
@@ -295,7 +430,7 @@
           </div>
           <div class="u-effect-fade u-gallery-item">
             <div class="u-back-slide" data-image-width="1000" data-image-height="1500">
-              <img class="u-back-image u-expanded" src="images/pexels-photo-4009589.jpeg">
+              <img class="u-back-image u-expanded" src="images/ballot.jpeg">
             </div>
             <div class="u-over-slide u-shading u-over-slide-2">
               <h3 class="u-gallery-heading"></h3>
@@ -304,7 +439,7 @@
           </div>
           <div class="u-effect-fade u-gallery-item">
             <div class="u-back-slide" data-image-width="1095" data-image-height="1500">
-              <img class="u-back-image u-expanded" src="images/pexels-photo-2007647.jpeg">
+              <img class="u-back-image u-expanded" src="images/az_pic.jpeg">
             </div>
             <div class="u-over-slide u-shading u-over-slide-3">
               <h3 class="u-gallery-heading"></h3>
@@ -313,7 +448,7 @@
           </div>
           <div class="u-effect-fade u-gallery-item">
             <div class="u-back-slide" data-image-width="1000" data-image-height="1500">
-              <img class="u-back-image u-expanded" src="images/pexels-photo-4009599.jpeg">
+              <img class="u-back-image u-expanded" src="images/another_one.svg">
             </div>
             <div class="u-over-slide u-shading u-over-slide-4">
               <h3 class="u-gallery-heading"></h3>
@@ -323,61 +458,72 @@
         </div>
       </div>
     </section>
-    <section class="u-align-center u-clearfix u-image u-section-9" id="carousel_492b" data-image-width="2520" data-image-height="1418">
+    <section class="u-align-center u-clearfix u-image u-section-9" id="carousel_492b" data-image-width="2520" data-image-height="800">
       <div class="u-clearfix u-sheet u-sheet-1">
-        <h2 class="u-text u-text-body-alt-color u-text-1">Download games and play free games every month.</h2>
+        <h2 class="u-text u-text-body-alt-color u-text-1">Registration in Arizona</h2>
       </div>
     </section>
-    <section class="u-align-center u-clearfix u-section-10" id="sec-fc7d">
-      <div class="u-clearfix u-expanded-width u-gutter-0 u-layout-wrap u-layout-wrap-1">
-        <div class="u-gutter-0 u-layout">
-          <div class="u-layout-row">
-            <div class="u-size-20 u-size-30-md">
-              <div class="u-layout-row">
-                <div class="u-align-left u-container-style u-image u-layout-cell u-left-cell u-size-60 u-image-1" src="" data-image-width="1080" data-image-height="1080">
-                  <div class="u-container-layout u-valign-middle u-container-layout-1" src=""></div>
-                </div>
+
+<!--     
+    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-b163"><div class="u-clearfix u-sheet u-sheet-1">
+        <p class="u-small-text u-text u-text-variant u-text-1">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
+      </div></footer>
+   -->
+<h3  style = "background-color:white">Registration in Arizona</h3>
+
+<p style = "background-color:white">The map below displays the number of Republicans (in red) and Republicans (in blue). Census blocks are displayed. The size of each node is simply the number of Republicans or Democrats in a given block. Really large circles indicate blocks with proportionately more Republicans (or Democrats). <em>Democrats are clustered around cities and suburbs; Republicans are particularly prominent in suburban and rural areas more distant from Downton Tucson, Downtown Phoenix, and Flagstaff. </p1>
+
+   <div id="map" style="height: 500px; width: 500px; background-color:white"></div>
+
+   <section class="u-align-center u-clearfix u-section-10" id="sec-fc7d">
+    <div class="u-clearfix u-expanded-width u-gutter-0 u-layout-wrap u-layout-wrap-1">
+      <div class="u-gutter-0 u-layout">
+        <div class="u-layout-row">
+          <div class="u-size-20 u-size-30-md">
+            <div class="u-layout-row">
+              <div class="u-align-left u-container-style u-image u-layout-cell u-left-cell u-size-60 u-image-1" src="" data-image-width="1080" data-image-height="1080">
+                <div class="u-container-layout u-valign-middle u-container-layout-1" src=""></div>
               </div>
             </div>
-            <div class="u-size-20 u-size-30-md">
-              <div class="u-layout-col">
-                <div class="u-align-left u-container-style u-image u-layout-cell u-size-30 u-image-2" src="" data-image-width="1080" data-image-height="1080">
-                  <div class="u-container-layout u-valign-middle u-container-layout-2" src=""></div>
-                </div>
-                <div class="u-align-left u-container-style u-image u-layout-cell u-size-30 u-image-3" src="" data-image-width="1080" data-image-height="1080">
-                  <div class="u-container-layout u-valign-middle u-container-layout-3" src=""></div>
-                </div>
+          </div>
+          <div class="u-size-20 u-size-30-md">
+            <div class="u-layout-col">
+              <div class="u-align-left u-container-style u-image u-layout-cell u-size-30 u-image-2" src="" data-image-width="1080" data-image-height="1080">
+                <div class="u-container-layout u-valign-middle u-container-layout-2" src=""></div>
+              </div>
+              <div class="u-align-left u-container-style u-image u-layout-cell u-size-30 u-image-3" src="" data-image-width="1080" data-image-height="1080">
+                <div class="u-container-layout u-valign-middle u-container-layout-3" src=""></div>
               </div>
             </div>
-            <div class="u-size-20 u-size-60-md">
-              <div class="u-layout-row">
-                <div class="u-align-left u-container-style u-grey-5 u-layout-cell u-right-cell u-size-60 u-layout-cell-4">
-                  <div class="u-container-layout u-valign-middle u-container-layout-4">
-                    <h3 class="u-text u-text-1">Sample Headline</h3>
-                    <p class="u-text u-text-2">Sample text. Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.</p>
-                  </div>
+          </div>
+          <div class="u-size-20 u-size-60-md">
+            <div class="u-layout-row">
+              <div class="u-align-left u-container-style u-grey-5 u-layout-cell u-right-cell u-size-60 u-layout-cell-4">
+                <div class="u-container-layout u-valign-middle u-container-layout-4">
+                  <h3 class="u-text u-text-1"></h3>
+                  <p class="u-text u-text-2"></p>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-    
-    
-    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-b163"><div class="u-clearfix u-sheet u-sheet-1">
-        <p class="u-small-text u-text u-text-variant u-text-1">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
-      </div></footer>
-    <section class="u-backlink u-clearfix u-grey-80">
-      <a class="u-link" href="https://nicepage.com/website-mockup" target="_blank">
-        <span>Website Mockup</span>
-      </a>
-      <p class="u-text">
-        <span>created with</span>
-      </p>
-      <a class="u-link" href="https://nicepage.com/html-website-builder" target="_blank">
-        <span>HTML Builder</span>
-      </a>. 
-    </section>
+    </div>
+  </section>
   
-</body></html>
+   
+ <p style = "background-color:white">And here is the ratio of independents to partisans.</p>
+ 
+</section>
+
+
+
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
+<script src="d3/pie_partisanship/cds_pie1.js"></script>
+<script src="map/map_az.js"></script>
+
+
+
+</html>
